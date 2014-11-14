@@ -12,15 +12,19 @@ Output: index1=1, index2=2
 题目分析：
 第一步： 我们要分析题意，其中有三个关键点：
 
-1. 求出来的坐标值要按序排列。
-2. 这两个坐标不能从零开始。
-3. 这道题目假设是只有一组答案符合要求，这样降低了我们解题的难度。
+1， 求出来的坐标值要按序排列。
+
+2， 这两个坐标不能从零开始。
+
+3， 这道题目假设是只有一组答案符合要求，这样降低了我们解题的难度。
 
 根据题目我们可以得到以下信息：
 
-1. 我们得到坐标的时候，要根据大小的顺序放入数组。
-2. 因为坐标值不能为零，所以我们得到的坐标都要+1。
-3. 因为有且只有一组答案符合要求，所以这大大的降低了这道题目的难度，也就是说，我们只要找到符合条件的两个数，存入结果，直接终止程序，返回答案即可。
+1，我们得到坐标的时候，要根据大小的顺序放入数组。
+
+2，因为坐标值不能为零，所以我们得到的坐标都要+1。
+
+3，因为有且只有一组答案符合要求，所以这大大的降低了这道题目的难度，也就是说，我们只要找到符合条件的两个数，存入结果，直接终止程序，返回答案即可。
 
 解题思路：
 这道题不是很难，是leetcode最开始的题目，要求很明确，很直接，如果我们用两个for循环，O(n2)的时间复杂度去求解的话，很容易计算出来，但这明显不是面试官需要的答案。brute force只有在你不知道如何优化题目的时候，将就的给出的一个解法。。那么我们能不能用O(n)的时间复杂度去解这道题呢？很显然是可以的，不过，天下没有掉馅饼的事情啦，既然优化了时间复杂度，我们就要牺牲空间复杂度啦。在这里用什么呢？stack？queue？vector？还是hash_map?
@@ -29,7 +33,8 @@ Output: index1=1, index2=2
 
 我们可以先把这个数组的所有元素存到hashmap中，一次循环就行，  时间复杂度为O(n),之后对所给数组在进行遍历，针对其中的元素我们只要用another_number = target-numbers[i],之后用hashmap的find function来查找这个值，如果存在的话，在进行后续比较（详见代码），如果不存在的话，继续查找，好啦，思路已经摆在这里了，详见代码吧。
 
-```c++
+```
+c++
 
 class Solution {
 public:
@@ -159,3 +164,93 @@ public:
 };
 ```
 根据以上代码，我们要注意的就是用于去除重复的那三个while loop。一些细节问题比如for loop中的i < num.size()-2;因为j和k都在i后面，所以减掉两位。当然如果写成i< num.size(); 也是可以通过测试的，但感觉思路不是很清晰。另外一点，就是不要忘记了corner case check呀。
+
+# 3Sum Closest
+
+> Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You man assume that each input would have exactly one solution.
+
+题目翻译：
+
+给定一个整形数组S和一个具体的值，要求找出在这数组中三个元素的和和这个给定的值最小。input只有一个有效答案。
+
+题目要求：
+
+这道题比较直接，也没有什么具体的要求。
+
+题目分析：
+
+1， 最短距离：两个整数的最短距离是0.这点对于这道题比较重要，别忽略。
+
+2， 这道题和3Sum几乎同出一辙，所以方便于解题，我们还是在开头要对数组进行排序，要么没法定位指针移动。
+
+3，另外，这道题中用到了INT_MAX这个值，这个值和 INT_MIN是相对应的，在很多比较求最大值最小值的情况，经常用这两个变量。
+
+时间复杂度分析：
+
+这道题目和3Sum几乎是一个思路，所以时间复杂度为O(n2)。
+
+代码如下：
+```
+
+c++
+
+class Solution {
+public:
+
+    int threeSumClosest(vector<int> &num, int target) {
+        //invalid corner case check
+        if(num.size() <= 2)
+            return -1;
+
+        int ret = 0;
+        //first we suspect the distance between the sum and the target is the largest number in int
+        int distance = INT_MAX;
+        sort(num.begin(),num.end());  //sort is needed
+        for(int i = 0; i < num.size()-2; ++i)
+        {
+            int j = i+1;
+            int k = num.size()-1;
+            while(j < k)
+            {
+                int tmp_val = num[i]+num[j]+num[k];
+                int tmp_distance;
+                if(tmp_val < target)
+                {
+                    tmp_distance = target - tmp_val;
+                    if(tmp_distance < distance)
+                    {
+                        distance = tmp_distance;
+                        ret = num[i]+num[j]+num[k];
+                    }
+                    ++j;
+                }
+                else if(tmp_val > target)
+                {
+                    tmp_distance = tmp_val-target;
+                    if(tmp_distance < distance)
+                    {
+                        distance = tmp_distance;
+                        ret= num[i]+num[j]+num[k];
+                    }
+                    --k;
+                }
+                else //note: in this case, the sum is 0, 0 means the shortest distance from the sum to the target
+                {
+                    ret = num[i]+num[j]+num[k];
+                    return ret;
+                }
+            }
+        }
+        return ret;
+    }
+};
+```
+总结：
+这道题的解决方法主要要注意以下几点：
+
+1， 首先要对数组进行排序。
+
+2， 0是两个数组间最小的距离。
+
+如果大家有什么更好的解法，欢迎联系我们。大家共同探讨。
+
