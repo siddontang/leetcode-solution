@@ -70,3 +70,92 @@ public:
 ```
 以上解法的要注意的是记得要检查这两个坐标是不是相同的，因为我们并不需要同样的数字。
 
+
+#3Sum
+> Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+> Note:
+Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
+The solution set must not contain duplicate triplets.
+
+题目翻译：
+
+给定一个整型数组num，找出这个数组中满足这个条件的所有数字：
+num[i]+num[j]+num[k] = 0. 并且所有的答案是要和其他不同的，也就是说两个相同的答案是不被接受的。
+
+题目的两点要求：
+
+1，每个答案组里面的三个数字是要从大到小排列起来的。
+
+2，每个答案不可以和其他的答案相同。
+
+题目分析：
+
+1，每一个答案数组triplet中的元素是要求升序排列的。
+
+2，不能包含重复的答案数组。
+
+解题思路：
+
+1，根据第一点要求： 因为要求每个答案数组中的元素是升序排列的，所以在开头我们要对数组进行排序。
+
+2，根据第二点要求：
+因为不能包含重复的答案数组，所以我们要在代码里面做一切去掉重复的操作，对于数组，这样的操作是相同的。最开始我做leetcode的时候是把所有满足条件的答案数组存起来，之后再用map进行处理，感觉那样太麻烦了，所以这次给出的答案是不需要额外空间的。
+
+时间复杂度分析：
+
+对于这道题，因为是要找三个元素，所以怎样都要O(n2)的时间复杂度，目前我没有想出来O(n)时间复杂度的解法。
+
+归根结底，其实这是two pointers的想法，定位其中两个指针，根据和的大小来移动另外一个。解题中所要注意的就是一些细节问题。好了，上代码吧。
+
+
+```
+c++
+
+class Solution {
+public:
+//constant space version
+    vector<vector<int> > threeSum(vector<int> &num) {
+        vector<vector<int>> ret;
+        //corner case invalid check
+        if(num.size() <= 2)
+            return ret;
+
+        //first we need to sort the array because we need the non-descending order
+        sort(num.begin(), num.end());
+
+        for(int i = 0; i < num.size()-2; ++i)
+        {
+            int j = i+1;
+            int k = num.size()-1;
+            while(j < k)
+            {
+                vector<int> curr;   //create a tmp vector to store each triplet which satisfy the solution.
+                if(num[i]+num[j]+num[k] == 0)
+                {
+                    curr.push_back(num[i]);
+                    curr.push_back(num[j]);
+                    curr.push_back(num[k]);
+                    ret.push_back(curr);
+                    ++j;
+                    --k;
+                    //this two while loop is used to skip the duplication solution
+                    while(j < k&&num[j-1] == num[j])
+                        ++j;
+                    while(j < k&&num[k] == num[k+1])
+                        --k;
+                }
+                else if(num[i]+num[j]+num[k] < 0)  //if the sum is less than the target value, we need to move j to forward
+                    ++j;
+                else
+                    --k;
+            }
+            //this while loop also is used to skip the duplication solution
+            while(i < num.size()-1&&num[i] == num[i+1])
+                ++i;
+        }
+        return ret;
+    }
+};
+```
+根据以上代码，我们要注意的就是用于去除重复的那三个while loop。一些细节问题比如for loop中的i < num.size()-2;因为j和k都在i后面，所以减掉两位。当然如果写成i< num.size(); 也是可以通过测试的，但感觉思路不是很清晰。另外一点，就是不要忘记了corner case check呀。
