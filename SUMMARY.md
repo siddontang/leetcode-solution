@@ -7,4 +7,5 @@
    * [Plus One](array/plus_one.md)
    * [Pascal's Triangle](array/pascals_triangle.md)
    * [Merge Sorted Array](array/merge_sorted_array.md)
+   * [Construct Binary Tree](array/construct_binary_tree.md)
 
