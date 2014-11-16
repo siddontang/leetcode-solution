@@ -12,6 +12,6 @@
    * [Find Minimum in Rotated Sorted Array ](array/find_minimum_in_rotated_sorted_array.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
-* [DFS and BFS](dfs_and_bfs/README.md)
-   * [Combination](dfs_and_bfs/combination.md)
+* [Backtracking](backtracking/README)
+   * [Combination](backtracking/combination)
 
