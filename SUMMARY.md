@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Array](array/README)
+* [Array](array/README.md)
    * [Remove Element](array/remove_element.md)
    * [Remove Duplicates from Sorted Array](array/remove_duplicates_from_sorted_array.md)
    * [Plus One](array/plus_one.md)
@@ -9,5 +9,5 @@
    * [Merge Sorted Array](array/merge_sorted_array.md)
    * [Construct Binary Tree](array/construct_binary_tree.md)
    * [Sum](array/sum.md)
-   * [Best Time to Buy and Sell Stock ](array/best_time_to_buy_and_sell_stock.md)
+   * [Combination](array/combination.md)
 
