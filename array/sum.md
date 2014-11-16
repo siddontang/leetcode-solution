@@ -245,4 +245,185 @@ public:
 
 
 
+# 4Sum
+
+> Given an array S of n integers, are there elements a, b, c and d in S such that a+b+c+d = target? Find all unique quadruplets in the array which gives the sume of target.
+
+> Note:
+1. Elements in quadruplets (a, b, c, d) must be in non-descending order. (ie, a<=b<=c<=d)
+2. The solution must not contain duplicates quadruplets.
+
+
+题目翻译：
+
+给定一个整型数字数组num和一个目标值target，求出数组中所有的组合满足条件： num[a]+num[b]+num[c]+num[d] = target.
+
+并且要满足的条件是：
+1. num[a] <= num[b] <= num[c] <= num[d]
+2. 答案中的组合没有重复的.
+
+题目分析：
+
+这道题和3Sum几乎同出一辙，只不过是要求四个数字的和，在时间复杂度上要比3Sum高一个数量级。对于两点要求的处理：
+1. 首先要对整个数组进行排序，这样得到的答案自然是排序好的.
+2. 对于重复答案的处理和3Sum是一摸一样的。
+
+解题思路：
+同3Sum.
+
+时间复杂度分析：
+
+这道题的解法，我选择的是空间复杂度为1， 时间复杂度为O(n3).对于这样的问题，如果到了KSum(K>=5), 我觉得可以用hash_map来牺牲空间复杂度换取好一些的时间复杂度.
+
+代码如下：
+
+```c++
+class Solution {
+public:
+    vector<vector<int> > fourSum(vector<int> &num, int target) {
+        vector<vector<int>> ret;
+        if(num.size() <= 3) //invalid corner case check
+            return ret;
+        sort(num.begin(), num.end()); //cause we need the result in quadruplets should be non-descending
+        for(int i = 0; i < num.size()-3; ++i)
+        {
+            if(i > 0 && num[i] == num[i-1])
+                continue;
+            for(int j = i+1; j < num.size()-2; ++j)
+            {
+                if(j > i+1 && num[j] == num[j-1])
+                    continue;
+                int k = j+1;
+                int l = num.size()-1;
+                while(k < l)
+                {
+                    int sum = num[i]+num[j]+num[k]+num[l];
+                    if(sum == target)
+                    {
+                        vector<int> curr; //create a temporary vector to store the each quadruplets
+                        curr.push_back(num[i]);
+                        curr.push_back(num[j]);
+                        curr.push_back(num[k]);
+                        curr.push_back(num[l]);
+                        ret.push_back(curr);
+                        //the two while loops are used to skip the duplication solutions
+                        do{++k;}
+                        while(k<l && num[k] == num[k-1]);
+                        do{--l;}
+                        while(k<l && num[l] == num[l+1]);
+                    }
+                    else if(sum < target)
+                        ++k;  //we can do this operation because of we sort the array at the beginning
+                    else
+                        --l;
+                }
+            }
+        }
+        return ret;
+    }
+};
+```
+
+根据上述代码，我觉得要说明白的一点是:
+1. 我用do{}while来代替了while进行重复答案的处理，为什么要这样呢？是因为如果换成了while，leetcode的test sample过不去，报的错误是超出了时间的限制，我认为如果要用while，应该是多进行了++k 还有--l的操作吧。换成了do{}while就可以通过所有的test case.
+
+
+
+
+
+# 问题扩展
+
+# KSum
+
+> 根据以上的2Sum, 3Sum, 3Sum Cloest， 还有4Sum，我相信只要认真看完每道题的解法的童鞋，都会发现一定的规律，相信这时候会有人想，如果变成KSum问题，我们应该如何求解？这是个很好的想法，下面，我们来看看问题扩展.
+
+首先，对于2Sum，我们用的解法是以空间复杂度来换取时间复杂度，那么，2Sum我们可不可以in place来解？时间复杂度又是多少？
+答案是当然可以，我们可以先sort一遍，之后再扫一变，sort的时间复杂度是O(nlogn)，扫一遍是O(n),因此，这种解法的时间复杂度是O(nlogn), 当然，如果对于要找index，leetcode上的题不能用这个方法，因为我们sort一遍之后，index会发生一些变化。但是我们可以用以下这个function来作为一个Helper function对于K Sum(考虑到如果K > 2, sort一遍数组的时间开销不算是主要的时间开销了):
+
+```c++
+void twoSum(vector<int> &numbers, int begin, int first, int second, int target, vector<vector<int>>& ret) {
+       if(begin >= numbers.size()-1)
+            return;
+        int b = begin;
+        int e = numbers.size()-1;
+        while(b < e)
+        {
+            int rest = numbers[b]+numbers[e];
+            if(rest == target)
+            {
+                vector<int> tmp_ret;
+                tmp_ret.push_back(first);
+                tmp_ret.push_back(second);
+                tmp_ret.push_back(numbers[b]);
+                tmp_ret.push_back(numbers[e]);
+                ret.push_back(tmp_ret);
+                do{b++;}
+                while(b<e && numbers[b] == numbers[b-1]);
+                do{e--;}
+                while(b<e && numbers[e] == numbers[e+1]);
+            }
+            else if(rest < target)
+                ++b;
+            else
+                --e;
+        }
+    }
+```
+
+给个例子，对于4Sum，我们可以调用这个function，代码如下:
+
+```c++
+class Solution {
+public:
+
+    void twoSum(vector<int> &numbers, int begin, int first, int second, int target, vector<vector<int>>& ret) {
+       if(begin >= numbers.size()-1)
+            return;
+        int b = begin;
+        int e = numbers.size()-1;
+        while(b < e)
+        {
+            int rest = numbers[b]+numbers[e];
+            if(rest == target)
+            {
+                vector<int> tmp_ret;
+                tmp_ret.push_back(first);
+                tmp_ret.push_back(second);
+                tmp_ret.push_back(numbers[b]);
+                tmp_ret.push_back(numbers[e]);
+                ret.push_back(tmp_ret);
+                do{b++;}
+                while(b<e && numbers[b] == numbers[b-1]);
+                do{e--;}
+                while(b<e && numbers[e] == numbers[e+1]);
+            }
+            else if(rest < target)
+                ++b;
+            else
+                --e;
+        }
+    }
+    vector<vector<int> > fourSum(vector<int> &num, int target) {
+        vector<vector<int>> ret;
+        if(num.size() <= 3) //invalid corner case check
+            return ret;
+        sort(num.begin(), num.end()); //cause we need the result in quadruplets should be non-descending
+        for(int i = 0; i < num.size()-3; ++i)
+        {
+            if(i > 0 && num[i] == num[i-1])
+                continue;
+            for(int j = i+1; j < num.size()-2; ++j)
+            {
+                if(j > i+1 && num[j] == num[j-1])
+                    continue;
+                twoSum(num, j+1, num[i], num[j], target-(num[i]+num[j]), ret);
+            }
+        }
+        return ret;
+    }
+};
+```
+
+以上解法可以延伸到KSum.不过是相当于对于n-2个数做嵌套循环。这么写出来使得思路清晰，以后遇到了类似问题可以解决。
+
 
