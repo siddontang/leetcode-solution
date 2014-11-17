@@ -13,6 +13,7 @@
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
+   * [Maximum Subarray](dynamic_programming/maximum_subarray.md)
 * [Backtracking](backtracking/README.md)
    * [Combination](backtracking/combination.md)
 
