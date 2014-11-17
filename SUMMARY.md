@@ -15,6 +15,7 @@
    * [Unique Paths ](dynamic_programming/unique_paths.md)
    * [Maximum Subarray](dynamic_programming/maximum_subarray.md)
    * [Climbing Stairs ](dynamic_programming/climbing_stairs.md)
+   * [Triangle](dynamic_programming/triangle.md)
 * [Backtracking](backtracking/README.md)
    * [Combination](backtracking/combination.md)
 
