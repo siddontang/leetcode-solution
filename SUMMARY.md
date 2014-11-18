@@ -9,6 +9,7 @@
    * [Merge Sorted Array](array/merge_sorted_array.md)
    * [Sum](array/sum.md)
    * [Find Minimum in Rotated Sorted Array ](array/find_minimum_in_rotated_sorted_array.md)
+   * [Largest Rectangle in Histogram ](array/largest_rectangle_in_histogram.md)
 * [Tree](tree/README.md)
    * [Depth of Binary Tree ](tree/depth_of_binary_tree.md)
    * [Construct Binary Tree](tree/construct_binary_tree.md)
