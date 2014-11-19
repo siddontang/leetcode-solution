@@ -22,4 +22,5 @@
    * [Triangle](dynamic_programming/triangle.md)
 * [Backtracking](backtracking/README.md)
    * [Combination](backtracking/combination.md)
+   * [Subsets ](backtracking/subsets.md)
 
