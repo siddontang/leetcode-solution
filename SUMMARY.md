@@ -23,4 +23,6 @@
 * [Backtracking](backtracking/README.md)
    * [Combination](backtracking/combination.md)
    * [Subsets ](backtracking/subsets.md)
+* [Greedy](greedy/README.md)
+   * [Jump Game](greedy/jump_game.md)
 
