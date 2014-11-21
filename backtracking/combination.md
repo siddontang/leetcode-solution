@@ -136,7 +136,9 @@ public:
 
 Note:
 1. All numbers (including target) will be positive integers.
+
 2. Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).
+
 3. The solution set must not contain duplicate combinations.
 
 
