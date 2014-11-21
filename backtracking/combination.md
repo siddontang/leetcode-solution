@@ -128,5 +128,65 @@ public:
 };
 ```
 
+# Combination Sum II
+
+> Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+
+> Each number in C may only be used once in the combination.
+
+Note:
+1. All numbers (including target) will be positive integers.
+2. Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).
+3. The solution set must not contain duplicate combinations.
+
+
+题目翻译:
+给定一个数组C和一个特定值T,要求找出这里面满足以下条件的所有答案：数组中数字的值加起来等于特定和的答案.
+
+数组中每个数字只能用一次.（同three sum和four sum的解法）
+
+注意条件:
+1. 给定数组的所有值必须是正整数.（意味着我们加corner case invalid check的时候要检查T）
+2. 答案数组中的值必须为升序排列.(我们要对数组进行排序)
+3. 最终答案不能包含重复数组.
+
+代码如下:
+```c++
+class Solution {
+public:
+    vector<vector<int> > combinationSum2(vector<int> &num, int target) {
+        vector<vector<int>> ret;
+        if(num.size() == 0 || target < 0) //invalid corner case check
+            return ret;
+        vector<int> curr;
+        sort(num.begin(), num.end());
+        BackTracking(ret,curr,num,target,0);
+        return ret;
+    }
+
+    void BackTracking(vector<vector<int>>& ret, vector<int> curr, vector<int> num, int target, int level)
+    {
+        if(target == 0)
+        {
+            ret.push_back(curr);
+            return;
+        }
+        else if(target < 0)
+            return;
+        for(int i = level; i < num.size(); ++i)
+        {
+            target -= num[i];
+            curr.push_back(num[i]);
+            BackTracking(ret,curr,num,target,i+1);
+            curr.pop_back();
+            target += num[i];
+            while(i < num.size()-1 && num[i] == num[i+1]) //we add this while loop is to skip the duplication result
+                ++i;
+        }
+    }
+
+};
+```
+
 
 
