@@ -135,6 +135,7 @@ public:
 > Each number in C may only be used once in the combination.
 
 Note:
+
 1. All numbers (including target) will be positive integers.
 
 2. Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).
