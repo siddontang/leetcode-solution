@@ -14,6 +14,7 @@
 * [Tree](tree/README.md)
    * [Depth of Binary Tree ](tree/depth_of_binary_tree.md)
    * [Construct Binary Tree](tree/construct_binary_tree.md)
+   * [Binary Tree Level Order Traversal](tree/binary_tree_level_order_traversal.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
