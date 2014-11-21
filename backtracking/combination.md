@@ -61,4 +61,72 @@ public:
 };
 ```
 
+# Combination Sum
+
+> Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+
+> The same repeated number may be chosen from C unlimited number of times.
+
+ Note:
+ 1. All numbers (including target) will be positive integers.
+ 2. Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 ≤ a2 ≤ … ≤ ak).
+ 3. The solution set must not contain duplicate combinations.
+
+题目翻译:
+给一个数组C和一个目标值T, 找出所有的满足条件的组合：使得组合里面的数字之和等于T,并且一些数字可以从C中午先选择。
+
+注意:
+1. 所有给定的数字均为正整数.(这意味着我们加corner case invalid check的时候要加一条，如果给定T不是正整数，我们就没必要在往下进行了)
+
+2. 所有的答案组中要满足升序排列.
+
+3. 最后的答案数组不能包含重复答案.
+
+题目分析:
+这道题的大体思路和combination是相同的，不同的地方在于一个数字可以使用多次，这也造成了我们进行实现function的时候要注意的问题，也就是说，传入递归的参数不同于combination.
+
+时间复杂度:
+没什么好说的，和combination的时间复杂度是相同的.O(n!)
+
+代码如下:
+
+```c++
+class Solution {
+public:
+    vector<vector<int> > combinationSum(vector<int> &candidates, int target) {
+        vector<vector<int>> ret;
+        //corner case invalid check
+        if(candidates.size() == 0 || target < 0)
+            return ret;
+        vector<int> curr;
+        sort(candidates.begin(),candidates.end()); //because the requirments need the elements should be in non-descending order
+        BackTracking(ret,curr,candidates,target,0);
+        return ret;
+    }
+
+    /* we use reference at here because the function return type is 0, make the code understand easily */
+    void BackTracking(vector<vector<int>>& ret, vector<int> curr, vector<int> candidates, int target, int level)
+    {
+        if(target == 0)
+        {
+            ret.push_back(curr);
+            return;
+        }
+        else if(target < 0) //save time
+            return;
+
+        for(int i = level; i < candidates.size(); ++i)
+        {
+            target -= candidates[i];
+            curr.push_back(candidates[i]);
+            BackTracking(ret,curr,candidates,target,i); //unlike combination, we do not use i+1 because we can use the same number multiple times.
+            curr.pop_back();
+            target += candidates[i];
+        }
+    }
+
+};
+```
+
+
 
