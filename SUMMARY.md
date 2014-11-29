@@ -33,4 +33,6 @@
    * [Gas Station](greedy/gas_station.md)
    * [Candy](greedy/candy.md)
    * [Word Break ](greedy/word_break.md)
+* [Linked List](linked_list/README)
+   * [Linked List Cycle](linked_list/linked_list_cycle.md)
 
