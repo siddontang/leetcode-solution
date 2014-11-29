@@ -35,4 +35,5 @@
    * [Word Break ](greedy/word_break.md)
 * [Linked List](linked_list/README)
    * [Linked List Cycle](linked_list/linked_list_cycle.md)
+   * [Remove Duplicates from Sorted List ](linked_list/remove_duplicates_from_sorted_list.md)
 
