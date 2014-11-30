@@ -36,4 +36,5 @@
 * [Linked List](linked_list/README)
    * [Linked List Cycle](linked_list/linked_list_cycle.md)
    * [Remove Duplicates from Sorted List ](linked_list/remove_duplicates_from_sorted_list.md)
+   * [Merge Sorted Lists](linked_list/merge_sorted_lists.md)
 
