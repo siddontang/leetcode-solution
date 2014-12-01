@@ -17,6 +17,7 @@
    * [Binary Tree Level Order Traversal](tree/binary_tree_level_order_traversal.md)
    * [Symmetric Tree](tree/symmetric_tree.md)
    * [Same Tree](tree/same_tree.md)
+   * [Balanced Binary Tree](tree/balanced_binary_tree.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
