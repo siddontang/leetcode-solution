@@ -1,6 +1,6 @@
 # Permutation
 
-Permutation这个分支是在backtracking下的一个子分支，其具体的解题方法和Combination几乎是同出一辙，一个思路，对于给定数组用DFS方法一层一层遍历，在这个section当中，我们将对于leetcode上出现的permutation问题进行逐个分析与解答.
+# Permutation这个分支是在backtracking下的一个子分支，其具体的解题方法和Combination几乎是同出一辙，一个思路，对于给定数组用DFS方法一层一层遍历，在这个section当中，我们将对于leetcode上出现的permutation问题进行逐个分析与解答.
 
 # Permutations
 
