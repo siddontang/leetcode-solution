@@ -23,6 +23,7 @@
    * [Binary Tree Depth Order Traversal ](tree/binary_tree_depth_order_traversal.md)
    * [Populating Next Right Pointers in Each Node ](tree/populating_next_right_pointers_in_each_node.md)
    * [Convert Sorted List/Array to Binary Search Tree ](tree/convert_sorted_listarray_to_binary_search_tree.md)
+   * [Reverse Linked List](tree/reverse_linked_list.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
@@ -43,3 +44,4 @@
    * [Linked List Cycle](linked_list/linked_list_cycle.md)
    * [Remove Duplicates from Sorted List ](linked_list/remove_duplicates_from_sorted_list.md)
    * [Merge Sorted Lists](linked_list/merge_sorted_lists.md)
+
