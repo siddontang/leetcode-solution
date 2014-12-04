@@ -45,4 +45,5 @@
    * [Merge Sorted Lists](linked_list/merge_sorted_lists.md)
    * [Reverse Linked List](linked_list/reverse_linked_list.md)
    * [Swap Nodes in Pairs](linked_list/swap_nodes_in_pairs.md)
+   * [Sort List](linked_list/sort_list.md)
 
