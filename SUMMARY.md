@@ -12,6 +12,7 @@
    * [Largest Rectangle in Histogram ](array/largest_rectangle_in_histogram.md)
    * [Maximal Rectangle](array/maximal_rectangle.md)
    * [Palindrome Number](array/palindrome_number.md)
+   * [Search a 2D Matrix](array/search_a_2d_matrix.md)
 * [Tree](tree/README.md)
    * [Depth of Binary Tree ](tree/depth_of_binary_tree.md)
    * [Construct Binary Tree](tree/construct_binary_tree.md)
