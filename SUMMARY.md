@@ -48,4 +48,6 @@
    * [Sort List](linked_list/sort_list.md)
    * [Rotate List](linked_list/rotate_list.md)
    * [Reorder List ](linked_list/reorder_list.md)
+* [Math](math/README.md)
+   * [Reverse Integer](math/reverse_integer.md)
 
