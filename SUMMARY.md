@@ -52,6 +52,7 @@
    * [Reorder List ](linked_list/reorder_list.md)
    * [Partition List ](linked_list/partition_list.md)
    * [Add Two Numbers](linked_list/add_two_numbers.md)
+   * [Copy List with Random Pointer](linked_list/copy_list_with_random_pointer.md)
 * [Math](math/README.md)
    * [Reverse Integer](math/reverse_integer.md)
 
