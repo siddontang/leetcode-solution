@@ -26,6 +26,7 @@
    * [Convert Sorted List/Array to Binary Search Tree ](tree/convert_sorted_listarray_to_binary_search_tree.md)
    * [Path Sum II](tree/path_sum_ii.md)
    * [Flatten Binary Tree to Linked List](tree/flatten_binary_tree_to_linked_list.md)
+   * [Validate Binary Search Tree](tree/validate_binary_search_tree.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
