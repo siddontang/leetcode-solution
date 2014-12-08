@@ -25,6 +25,7 @@
    * [Populating Next Right Pointers in Each Node ](tree/populating_next_right_pointers_in_each_node.md)
    * [Convert Sorted List/Array to Binary Search Tree ](tree/convert_sorted_listarray_to_binary_search_tree.md)
    * [Path Sum II](tree/path_sum_ii.md)
+   * [Flatten Binary Tree to Linked List](tree/flatten_binary_tree_to_linked_list.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
