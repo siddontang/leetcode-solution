@@ -43,7 +43,7 @@
    * [Gas Station](greedy/gas_station.md)
    * [Candy](greedy/candy.md)
    * [Word Break ](greedy/word_break.md)
-* [Linked List](linked_list/README)
+* [Linked List](linked_list/README.md)
    * [Linked List Cycle](linked_list/linked_list_cycle.md)
    * [Remove Duplicates from Sorted List ](linked_list/remove_duplicates_from_sorted_list.md)
    * [Merge Sorted Lists](linked_list/merge_sorted_lists.md)
@@ -57,4 +57,6 @@
    * [Copy List with Random Pointer](linked_list/copy_list_with_random_pointer.md)
 * [Math](math/README.md)
    * [Reverse Integer](math/reverse_integer.md)
+* [String](string/README.md)
+   * [Add Binary](string/add_binary.md)
 
