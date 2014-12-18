@@ -15,6 +15,7 @@
    * [Search a 2D Matrix](array/search_a_2d_matrix.md)
    * [Search for a Range](array/search_for_a_range.md)
    * [Search Insert Position](array/search_insert_position.md)
+   * [Find Peak Element ](array/find_peak_element.md)
 * [Tree](tree/README.md)
    * [Depth of Binary Tree ](tree/depth_of_binary_tree.md)
    * [Construct Binary Tree](tree/construct_binary_tree.md)
