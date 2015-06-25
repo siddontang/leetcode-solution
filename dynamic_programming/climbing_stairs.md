@@ -4,7 +4,7 @@
 
 > Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
-这道题目其实就是斐波那契数列数列问题，题目比较简单，我们很容易就能列出dp方程
+这道题目其实就是斐波那契数列问题，题目比较简单，我们很容易就能列出dp方程
 
 `dp[n] = dp[n - 1] + dp[n - 2]`
 
