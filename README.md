@@ -13,3 +13,9 @@
 当然，除了LeetCode现有的题目，我们也希望在每个章节加入相关的扩展知识，这需要我们参考大量现有的算法书籍，鉴于个人精力时间有限，可能并不会完全实施。
 
 最后，我们非常欢迎大家的反馈（前提是有人看我们的东西）。如果你有任何的意见建议，欢迎在Github的issue里面提出，或者直接与我们联系。
+
+# Thanks Contributor
+
++ 陈心宇 [collectchen@gmail.com](collectchen@gmail.com)
++ 张晓翀 [xczhang07@gmail.com](xczhang07@gmail.com)
++ SiddonTang [siddontang@gmail.com](siddontang@gmail.com)
