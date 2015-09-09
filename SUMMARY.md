@@ -31,6 +31,7 @@
    * [Flatten Binary Tree to Linked List](tree/flatten_binary_tree_to_linked_list.md)
    * [Validate Binary Search Tree](tree/validate_binary_search_tree.md)
    * [Recover Binary Search Tree](tree/recover_binary_search_tree.md)
+   * [Binary Tree Path](tree/binary_tree_path.md)
 * [Dynamic Programming](dynamic_programming/README.md)
    * [Best Time To Buy And Sell Stock](dynamic_programming/best_time_to_buy_and_sell_stock.md)
    * [Unique Paths ](dynamic_programming/unique_paths.md)
