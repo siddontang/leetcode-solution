@@ -1,5 +1,4 @@
 # Basic Calculator II
-# Author: Xinyu Chen
 
 > Implement a basic calculator to evaluate a simple expression string.
 
