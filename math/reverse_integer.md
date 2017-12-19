@@ -20,6 +20,8 @@ public:
         int ret = 0;
         while(x!=0)
         {
+            if(ret > 2147483647/10 || ret < -2147483647/10) 
+                return 0;
             ret = ret*10 + x%10;
             x = x/10;
         }
